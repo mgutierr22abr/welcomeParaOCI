@@ -21,3 +21,6 @@ Si ya existe token, se pasa como parámetro, en caso contrario, se crea automát
 
 Notar el comando va con punto espacio
 
+Con esto:
+- Se revisa que el usuario y token de acceso al OCIR esta correcto
+- El cluster kubernetes esta Running y con acceso
