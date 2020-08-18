@@ -2,6 +2,7 @@
 
 ## Sesion 4: Despliegue de herramientas utiles
 
+## Infraestructura Base
 ir a consola OCI --> Cloud-Shell
 
 ### git clone https://github.com/mgutierr22abr/welcomeParaOCI.git
@@ -29,4 +30,6 @@ Con esto:
 - Se genera el dynamic-group (máquina de kubernetes)
 - Se genera política de acceso para el grupo
 - Se genera archivo ejemplo crontab
+
+## Ejemplos
 
