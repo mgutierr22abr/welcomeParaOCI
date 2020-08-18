@@ -24,3 +24,9 @@ Notar el comando va con punto espacio
 Con esto:
 - Se revisa que el usuario y token de acceso al OCIR esta correcto
 - El cluster kubernetes esta Running y con acceso
+
+# ./3prepara.sh
+- Se genera el dynamic-group (máquina de kubernetes)
+- Se genera política de acceso para el grupo
+- Se genera archivo ejemplo crontab
+
