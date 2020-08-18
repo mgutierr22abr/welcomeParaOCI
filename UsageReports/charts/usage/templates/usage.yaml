@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usage-deploy
+  namespace: default
+  labels:
+    app: usage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: usage
+      environment: dev
+  template:
+    metadata:
+      labels:
+        app: usage
+        environment: dev
+    spec:
+      imagePullSecrets:
+      - name: ocirsecret
+      containers:
+      - name: usage
+        image: {{ .Values.imagen }}
+        imagePullPolicy: Always
+        env:
+        - name: PW
+          valueFrom:
+            secretKeyRef:
+              name: adbusage
+              key: pw
+        - name: NOMBRE
+          valueFrom:
+            secretKeyRef:
+              name: adbusage
+              key: nombre   
+        volumeMounts:
+        - mountPath: /app/config/keystore.jks
+          subPath: keystore.jks
+          name: wallet
+          readOnly: true
+        - mountPath: /app/config/truststore.jks
+          subPath: truststore.jks
+          name: wallet
+          readOnly: true
+        - mountPath: /app/config/tnsnames.ora
+          subPath: tnsnames.ora
+          name: wallet
+          readOnly: true
+        - mountPath: /app/config/sqlnet.ora
+          subPath: sqlnet.ora
+          name: wallet
+          readOnly: true
+        - mountPath: /app/config/cwallet.sso
+          subPath: cwallet.sso
+          name: wallet
+          readOnly: true
+        - mountPath: /app/config/ewallet.p12
+          subPath: ewallet.p12
+          name: wallet
+          readOnly: true
+      volumes:
+        - name: wallet
+          secret:
+            secretName: adbusage
+            defaultMode: 256

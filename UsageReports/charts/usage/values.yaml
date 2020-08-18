@@ -1,0 +1,2 @@
+# Load balancer type.  Supported values are: TRAEFIK, VOYAGER
+imagen: usage

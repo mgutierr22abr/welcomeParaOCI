@@ -1,0 +1,8 @@
+CRON_TZ=America/Santiago
+00 10 * * * /agenda/opera.sh stop 10
+00 11 * * * /agenda/opera.sh stop 11
+00 12 * * * /agenda/opera.sh stop 12
+00 13 * * * /agenda/opera.sh stop 13
+00 14 * * * /agenda/opera.sh stop 14
+00 15 * * * /agenda/opera.sh stop 15
+00 16 * * * /agenda/opera.sh stop 16

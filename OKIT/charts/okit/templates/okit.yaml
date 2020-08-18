@@ -1,0 +1,73 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: okit
+  namespace: default
+spec:
+  rules:
+  - host: okit.mgutierr.xyz
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: okit-service
+          servicePort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: okit-deploy
+  namespace: default
+  labels:
+    app: okit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: okit
+      environment: dev
+  template:
+    metadata:
+      labels:
+        app: okit
+        environment: dev
+    spec:
+      imagePullSecrets:
+      - name: ocirsecret
+      containers:
+      - name: okit
+        image: {{ .Values.imagen }}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /root/.oci/config
+          subPath: config
+          name: ocicli
+          readOnly: true
+        - mountPath: /root/.oci/oci_api_key.pem
+          subPath: oci_api_key.pem
+          name: ocicli
+          readOnly: true
+      volumes:
+        - name: ocicli
+          secret:
+            secretName: ocicli
+            defaultMode: 256
+---
+apiVersion: v1
+kind: Service
+metadata:
+   name: okit-service
+   namespace: default
+   labels:
+    app: okit
+spec:
+   ports:
+   - name: "http"
+     port: 80
+     targetPort: 80
+   selector:
+     app: okit
+status:
+   loadBalancer: {}
