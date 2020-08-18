@@ -1,0 +1,6 @@
+[DEFAULT]
+user = ocid1.user.oc1..aaaaaaaaorvfffffffffffffffffffffffffffffffffffffffffffffffff
+fingerprint = 6b:2f:ac:e1:a8:3f:a1:b5:a2:22:84:5c:b0:41:44:56
+key_file = ~/.oci/llave.pem
+tenancy = ocid1.tenancy.oc1..xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+region = us-phoenix-1

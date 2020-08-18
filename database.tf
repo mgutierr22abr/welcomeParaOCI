@@ -25,7 +25,7 @@ resource "local_file" "wallet_file" {
 }
 
 resource "local_file" "dbid" {
-  content_base64 = data.oci_database_autonomous_database_wallet.autonomous_database_wallet.content
+  content        = oci_database_autonomous_database.databasea.id
   filename       = "${path.module}/dbid.txt"
 }
 

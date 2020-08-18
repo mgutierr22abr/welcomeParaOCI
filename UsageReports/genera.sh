@@ -12,7 +12,6 @@ docker build --tag usage --tag $IMAGENREPO .
 if [ $? -ne 0 ]; then
 	exit
 fi
-docker login $REPO -u $REPODOM/$USU -p "$TOKENCLA"
 docker push $IMAGENREPO
 
 mkdir -p wallet
