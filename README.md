@@ -50,3 +50,20 @@ Graficos personalizados de consumo OCI
 
 - https://github.com/oracle/oci-python-sdk/blob/master/examples/usage_reports_to_adw
 
+### cd UsageReports
+### ./genera.sh
+
+- Se crea imagen docker
+- Se hace push al repositorio
+- Se despliega el pod
+- Se carga datos a ADW
+
+## Agenda
+Agenda de encendido/apagado de recursos (instancias, dbnodes, autonomous)
+
+### cd Agenda
+### ./genera.sh
+
+- Se crea imagen docker
+- Se hace push al repositorio
+- Se despliega el pod
