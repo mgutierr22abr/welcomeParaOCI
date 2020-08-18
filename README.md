@@ -16,5 +16,8 @@ Se genera:
 - autonomous DW usage
 - cluster kubernetes con 1 nodo
 
+# . ./2revisa.sh [<auth-token>]
+Si ya existe token, se pasa como parámetro, en caso contrario, se crea automáticamente.
 
+Notar el comando va con punto espacio
 
