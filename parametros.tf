@@ -25,4 +25,5 @@ data "oci_identity_availability_domains" "ads" {
 /******************************************************/
 data "oci_containerengine_node_pool_option" "opciones" {
 	node_pool_option_id = "all"
+        depends_on = [ oci_identity_policy.poke ]
 }
