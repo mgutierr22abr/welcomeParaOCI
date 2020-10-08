@@ -5,7 +5,7 @@ oci iam compartment get --compartment-id $OCI_TENANCY > comproot.json
 oci iam region list > reg.json
 P=$(cat reg.json | jq -r '.data[] | select( .name == "'$OCI_REGION'" ) | .key | ascii_downcase')
 export REPO=$P.ocir.io
-export REPODOM=$(cat comproot.json | jq -r '.data.name')
+export REPODOM=$(oci os ns get | jq -r '.data')
 export userid=$(grep '"principal_id"' terraform.tfstate  | sort -u | awk -F'"' '{print $4}')
 export USU=$(oci iam user get --user-id $userid | jq -r '.data.name')
 if [ a$T == a ]; then
